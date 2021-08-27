@@ -1,0 +1,23 @@
+img{
+    width: 50px;
+    border-radius: 100%;
+    background-color: rgba(255, 255, 255, 0.501);
+}
+
+nav{
+    background-color: rgba(36, 36, 36, 0.775);
+}
+
+.navbar {
+    position: sticky;
+}
+
+nav .dropdown-toggle{
+    color: white;
+}
+
+nav .dropdown-menu{
+    background-color: darkgray;
+    
+
+}
