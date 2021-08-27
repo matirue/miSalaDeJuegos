@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "node serve.js",
+    "start": "node server.js",
     "build": "ng build",
     "postinstall": "ng build --output-path angularapp --aot --prod",
     "watch": "ng build --watch --configuration development",
