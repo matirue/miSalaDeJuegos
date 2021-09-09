@@ -1,1 +1,38 @@
-<h1>registrooooo    </h1>
+<body class="text-center">
+
+    <form class="form-signin" [formGroup] = "registroForm" (ngSubmit)="Registar()">
+      <img class="mb-4" src="./../../../assets/consola-de-juego.png" alt="" width="72" height="72">
+  
+      <h1 class="h3 mb-3 font-weight-normal">Registrar</h1>
+
+      <br>
+
+      <label for="inputPassword" class="sr-only">Email</label>    
+      <input type="email" id="emai" class="form-control" formControlName='email' placeholder="Email" required autofocus>
+  
+      <label for="inputPassword" class="sr-only">Contraseña</label>
+      <input type="password" id="password" class="form-control" formControlName='password' placeholder="Contraseña" required>
+  
+      <div class="checkbox mb-3">
+        <label>
+          <input type="checkbox" value="remember-me" required autofocus> Acepto los términos y condiciones
+        </label>
+      </div>
+
+      <br>
+  
+      <button class="btn btn-lg btn-primary btn-block" type="submit">Registrarme</button>
+      <hr>
+      <button class="btn btn-lg btn-primary btn-block" type="button" (click)="Login()">Ya tengo cuenta</button>
+      
+      <p class="mt-5 mb-3 text-muted">&copy; Rueda - 2021</p>
+    </form>
+
+    <div *ngIf="load">
+      <div class="spinner">
+        <img src="../../../assets/gif/pato.gif" >
+      </div>  
+    </div>  
+  
+  
+  </body>

@@ -1,23 +1,35 @@
 <body class="text-center">
+
+  
+  
+  <form class="form-signin" [formGroup]="loginForm">
+    <img class="mb-4" src="./../../../assets/consola-de-juego.png" alt="" width="72" height="72">
+
+    <h1 class="h3 mb-3 font-weight-normal">Iniciar sesión</h1>
+
+    <br>
+
+    <label for="inputPassword" class="sr-only">Email</label>    
+    <input type="email" id="email" class="form-control" [(ngModel)]="userAdmin.email" formControlName="email" placeholder="Email" required autofocus>
+
+    <label for="inputPassword" class="sr-only">Contraseña</label>
+    <input type="password" id="password" class="form-control" [(ngModel)]="userAdmin.password" formControlName="password" placeholder="Contraseña" required>
+
+    <br>
+
+    <button class="btn btn-lg btn-primary btn-block" type="submit" (click)="Ingresar()">Iniciar sesión</button>
+    <button class="btn btn-lg btn-primary btn-block" type="button" (click)="InicioRapido()">Inicio rápido</button>
+    <hr>
+    <button class="btn btn-lg btn-primary btn-block" type="button" (click)="Registrar()">Registrarme</button>
     
-    <form class="form-signin">
-      <img class="mb-4" src="./../../../assets/consola-de-juego.png" alt="" width="72" height="72">
-      <h1 class="h3 mb-3 font-weight-normal">Bienvenido</h1>
-      <label for="inputPassword" class="sr-only">Email</label>
-      <input type="email" id="inputEmail" class="form-control" placeholder="Email" required autofocus>
-      <label for="inputPassword" class="sr-only">Contraseña</label>
-      <input type="password" id="inputPassword" class="form-control" placeholder="Contraseña" required>
-      <div class="checkbox mb-3">
-        <label>
-          <input type="checkbox" value="remember-me"> Recordarme
-        </label>
-      </div>
-      <button class="btn btn-lg btn-primary btn-block" type="submit" (click)="Siguiente()">Iniciar sesión</button>
-      <hr>
-      <button class="btn btn-lg btn-primary btn-block" type="submit" (click)="Registrar()">Registrarme</button>
-      <p class="mt-5 mb-3 text-muted">&copy; Rueda - 2021</p>
-    </form>
-    
-    
-        
+    <p class="mt-5 mb-3 text-muted">&copy; Rueda - 2021</p>
+  </form>
+
+  <div *ngIf="load">
+    <div class="spinner">
+      <img src="../../../assets/gif/pato.gif" >
+    </div>  
+  </div>
+
+
 </body>
