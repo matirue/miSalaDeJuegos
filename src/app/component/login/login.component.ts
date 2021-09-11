@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { User } from 'src/app/clases/user';
 import { AuthService } from 'src/app/servicios/auth.service';
@@ -16,6 +16,17 @@ export class LoginComponent implements OnInit {
   public userAdmin: User;
   public load: boolean = false;
 
+  public mensajeValidacion = {
+    'email': [
+      {tipo: 'required', mesnaje: 'El email es requerido'},
+      {tipo: 'email', mesnaje: 'Debe respetar el formato example@example.com.'},
+    ],
+    'password': [
+      {tipo: 'required', mesnaje: 'El password es requerido'},
+      {tipo: 'minlength', mesnaje: 'La Contraseña debe ttener un minimo de 6 caracteres.'},
+    ]
+  };
+
   loginForm = new FormGroup({
       email: new FormControl(''),
       password: new FormControl(''),
@@ -24,9 +35,16 @@ export class LoginComponent implements OnInit {
   constructor(
     private rutas: Router,
     private servicio: UsuarioService,
-    private authService: AuthService
+    private authService: AuthService,
+    private formBuilder: FormBuilder
   ) {
     this.userAdmin = new User();
+
+    this.loginForm = this.formBuilder.group({
+      email:['', [Validators.required, Validators.email]],
+      password:['', [Validators.required, Validators.minLength(6)]]
+    });
+    
    }
 
   ngOnInit(): void {

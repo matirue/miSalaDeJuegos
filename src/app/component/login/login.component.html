@@ -2,7 +2,7 @@
 
   
   
-  <form class="form-signin" [formGroup]="loginForm">
+  <form class="form-signin" [formGroup]="loginForm" (ngSubmit)="Ingresar()">
     <img class="mb-4" src="./../../../assets/consola-de-juego.png" alt="" width="72" height="72">
 
     <h1 class="h3 mb-3 font-weight-normal">Iniciar sesión</h1>
@@ -11,13 +11,21 @@
 
     <label for="inputPassword" class="sr-only">Email</label>    
     <input type="email" id="email" class="form-control" [(ngModel)]="userAdmin.email" formControlName="email" placeholder="Email" required autofocus>
+      <div *ngFor="let validacion of mensajeValidacion.email">
+        <div class="row">
+          <!--div class="col centrar mensajeError" *ngIf="loginForm.get('email').hasError(validacion.tipo) && loginForm.get('email').dirty || loginForm.get('email').touched ">
+            {{validacion.mensaje}}
+  
+          </div-->  
+        </div>
+      </div>
 
     <label for="inputPassword" class="sr-only">Contraseña</label>
     <input type="password" id="password" class="form-control" [(ngModel)]="userAdmin.password" formControlName="password" placeholder="Contraseña" required>
 
     <br>
 
-    <button class="btn btn-lg btn-primary btn-block" type="submit" (click)="Ingresar()">Iniciar sesión</button>
+    <button class="btn btn-lg btn-primary btn-block" type="submit" (click)="Ingresar()" [disabled]="!loginForm.valid">Iniciar sesión</button>
     <button class="btn btn-lg btn-primary btn-block" type="button" (click)="InicioRapido()">Inicio rápido</button>
     <hr>
     <button class="btn btn-lg btn-primary btn-block" type="button" (click)="Registrar()">Registrarme</button>
