@@ -1,3 +1,6 @@
+@import url(./../../../../node_modules/bulma/css/bulma.min.css);
+@import url(./../../../../node_modules/@fortawesome/fontawesome-free/css/all.min.css);
+
 html,
 body {
   height: 100%;
@@ -47,6 +50,12 @@ button{
     appearance: auto;
     text-rendering: auto;
     background-color: rgba(255, 10, 10, 0.653);
+    border-color: rgba(255, 10, 10, 0.653);
+}
+
+button:disabled {
+  background-color: #ccc;
+  border-color: #ccc;
 }
 
 .spinner{

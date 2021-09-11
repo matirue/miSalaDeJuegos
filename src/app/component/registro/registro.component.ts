@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 
 import { Router } from '@angular/router';
 import { User } from 'src/app/clases/user';
@@ -17,6 +17,17 @@ export class RegistroComponent implements OnInit {
   
   public load: boolean = false;
 
+  public mensajeValidacion = {
+    'email': [
+      {tipo: 'required', mesnaje: 'El email es requerido'},
+      {tipo: 'email', mesnaje: 'Debe respetar el formato example@example.com.'},
+    ],
+    'password': [
+      {tipo: 'required', mesnaje: 'El password es requerido'},
+      {tipo: 'minlength', mesnaje: 'La Contraseña debe ttener un minimo de 6 caracteres.'},
+    ]
+  };
+
   registroForm = new FormGroup({
       email: new FormControl(''),
       password: new FormControl(''),
@@ -25,9 +36,40 @@ export class RegistroComponent implements OnInit {
   constructor(
     private rutas: Router,
     private authService: AuthService,
-  ) { }
+    private formBuilder: FormBuilder
+  ) { 
+    this.registroForm = this.formBuilder.group({
+      email:['', 
+            [Validators.required, 
+            Validators.email,
+            Validators.pattern(/^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/)]],
+      password:['', [Validators.required, Validators.minLength(6)]]
+    });
+   }
 
   ngOnInit(): void {    
+  }
+
+  /**campo email */
+  get email_campo(){
+    return this.registroForm.get('email');
+  }
+  get eamil_campoValido(){
+    return this.email_campo?.touched && this.email_campo.valid;
+  }
+  get eamil_campoInvalido(){
+    return this.email_campo?.touched && this.email_campo.invalid;
+  }
+
+  /**campo password */
+  get password_campo(){
+    return this.registroForm.get('password');
+  }
+  get password_campoValido(){
+    return this.password_campo?.touched && this.password_campo.valid;
+  }
+  get password_campoInvalido(){
+    return this.password_campo?.touched && (this.password_campo.value).minLength<6;
   }
 
   /**

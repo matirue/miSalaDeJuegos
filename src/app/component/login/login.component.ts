@@ -41,7 +41,10 @@ export class LoginComponent implements OnInit {
     this.userAdmin = new User();
 
     this.loginForm = this.formBuilder.group({
-      email:['', [Validators.required, Validators.email]],
+      email:['', 
+            [Validators.required, 
+            Validators.email,
+            Validators.pattern(/^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/)]],
       password:['', [Validators.required, Validators.minLength(6)]]
     });
     
@@ -50,6 +53,28 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
 
+
+  /**campo email */
+  get email_campo(){
+    return this.loginForm.get('email');
+  }
+  get eamil_campoValido(){
+    return this.email_campo?.touched && this.email_campo.valid;
+  }
+  get eamil_campoInvalido(){
+    return this.email_campo?.touched && this.email_campo.invalid;
+  }
+
+  /**campo password */
+  get password_campo(){
+    return this.loginForm.get('password');
+  }
+  get password_campoValido(){
+    return this.password_campo?.touched && this.password_campo.valid;
+  }
+  get password_campoInvalido(){
+    return this.password_campo?.touched && (this.password_campo.value).minLength<6;
+  }
 
   /**
    * Funcion que inicia session
@@ -71,6 +96,12 @@ export class LoginComponent implements OnInit {
     }
   }
 
+  
+
+
+
+
+  /***********************Rutas********************************* */
   IrHome() { 
     var modelo = this;
     this.load = true;
@@ -84,9 +115,11 @@ export class LoginComponent implements OnInit {
     this.rutas.navigate(['registro']);
   }
 
-  InicioRapido(){
+  public InicioRapido(){
     this.userAdmin.email = "admin@admin.com";
     this.userAdmin.password = "123456";
+    
+    
 
   }
 }
