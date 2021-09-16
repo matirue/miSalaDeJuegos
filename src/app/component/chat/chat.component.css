@@ -1,0 +1,105 @@
+.hora-chat{
+    color: #413838;
+    font-size: 11px;
+    margin-top: 0px;
+    padding-top: 0px;
+  }
+  
+  .form-control{
+    margin-top: 0px;
+    width: 98%;
+  }
+  
+  .principal{
+    background-color: #000;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 50% 50%;
+  }
+  
+  div h2{
+      color: white;
+  }
+  
+  /* Scoll */
+  
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    /* -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);  */
+    border-radius: 10px;
+  }
+  ::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+     --webkit-box-shadow: inset 0 0 20px rgba(103, 103, 103, 0.816);
+  }
+  
+  /* Fin Scroll */
+  
+  
+  .main-container{
+      padding-top: 3%;
+      padding-bottom: 3%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      
+    }
+    
+    .puntero{
+      cursor: pointer;
+    }
+    
+    
+    .chat-window{
+      padding: 10px;
+      width: 350px;
+      height: 420px;
+      overflow: hidden;
+      border: 1px solid #717171;
+      border-radius: 20px;
+      box-shadow: 8px 7px 22px -4px rgba(94, 40, 40, 0.75);
+      -webkit-box-shadow: 8px 7px 22px -4px rgba(94, 40, 40, 0.75);
+      -moz-box-shadow: 8px 7px 22px -4px rgba(94, 40, 40, 0.75);
+      background-color: rgba(75, 48, 48, 0.523);
+    }
+    
+    .app-mensajes{
+      overflow-y:scroll;
+      height:270px;
+      /*background:gray;*/
+      padding: 5px;
+      scrollbar-color: rgb(138, 138, 138) #785978;
+      scrollbar-width: 10px;
+    }
+    
+    
+    /* Animaciones */
+    .animated {
+      -webkit-animation-duration: 1s;
+      animation-duration: 1s;
+      -webkit-animation-fill-mode: both;
+      animation-fill-mode: both;
+    }
+    
+    .fast {
+      -webkit-animation-duration: 0.3s;
+      animation-duration: 0.3s;
+      -webkit-animation-fill-mode: both;
+      animation-fill-mode: both;
+    }
+    
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+    
+      to {
+        opacity: 1;
+      }
+    }
+    
+    .fadeIn {
+      animation-name: fadeIn;
+    }
