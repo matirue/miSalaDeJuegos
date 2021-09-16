@@ -30,7 +30,7 @@ export class HomeComponent implements OnInit {
   }
 
   goPreguntados(){
-    this.router.navigate(["/reguntados"]);
+    this.router.navigate(["/preguntados"]);
   }
   
   goAdivinarColor(){

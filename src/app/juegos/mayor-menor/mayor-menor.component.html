@@ -1,4 +1,55 @@
+<div class="container">
+  <div class="row">
+    
+    <div class="col-3">
+      <div class="img__container">
+        <span class="counter"> Vidas: {{vidas}}/{{vidasTotal}}</span>
+        <img src="../assets/imagenes_juegos/mayorMenor/{{numero}}.png" alt="">
+         
+        <br><br>
+  
+        <div class="mensaje win" *ngIf="win">
+          <span>{{mensajePuntosWin}}</span>
+        </div>
+      
+        <div class="mensaje lose" *ngIf="lose">
+          <span>{{mensajePuntosLose}}</span>
+        </div>
+  
+        
+      
+        
+      </div>
+    </div>
 
+    <div class="col-5">
+
+      <span class="counter"> Puntos: {{puntos}}</span>
+
+      <br><br>
+      
+      <h2 *ngIf="!smsFinal" >La siguiente carta es:</h2>
+
+      <div class="mensaje lose" *ngIf="smsFinal">
+        <span>{{mensajeFinal}}</span>
+      </div>
+
+      <br>
+      <button type="submit" class="col btn" *ngIf="!smsFinal" (click)="Jugar('mayor')">Mayor</button>
+      <button type="submit" class="col btn" *ngIf="!smsFinal" (click)="Jugar('menor')">Menor</button>
+
+      <button type="submit" class="col btn" *ngIf="smsFinal" (click)="Repetir()"><i class="fas fa-undo"></i></button>
+      <button type="submit" class="col btn" *ngIf="smsFinal" [routerLink]="['/home']" routerLinkActive="router-link-active" >Salir</button>
+    </div>
+
+    <div class="col-4">
+      <p>aca va el chat????</p>
+    </div>
+    
+  </div>
+
+  
+</div>
 
 
 

@@ -1,7 +1,59 @@
+<div class="container">
+  <div class="row">
 
+    <div class="col-3">
+      <span class="message">Puntos: </span>
+      <span class="counter">{{puntos}}</span>
+      <div class="img__container">
+        <img src="../assets/imagenes_juegos/ahorcado/{{intntoes_usuarios}}.png" alt="">
+        <span class="message">Intentos: </span>
+        <span class="counter">{{intntoes_usuarios}}/{{intentos}}</span>
+         
+        <br><br>
 
+        <div class="mensaje win" *ngIf="win">
+          <span>{{message}}</span>
+        </div>
+      
+        <div class="mensaje lose" *ngIf="lose">
+          <span>{{message}}</span>
+        </div>
+      
+        
+      </div>
+    </div>
 
+    <div class="col-5">
+      <div class="row justify-content-center">
+        <br><br>
 
+        <h1 class="h1Plabra">Palabra...</h1>
+
+        <div class="word__container">
+          <h1> {{palabraOculta}} </h1>
+        </div>
+    
+        <div class="letters">
+          <button class="letter_button" *ngFor="let letter of letters" (click)="checkLetter(letter)">{{letter}}</button>
+        </div>
+
+        <div class='row  justify-content-center' *ngIf="win || lose">
+          
+            <button type="submit" class="botones_resultados col-3" [routerLink]="['/home']" routerLinkActive="router-link-active" >Salir</button>
+          
+            
+          
+            <button type="submit" class="botones_resultados col-3 " (click)="restartGame()"><i class="fas fa-undo"></i></button>
+          
+        </div>
+      </div>         
+    </div>
+
+    <div class="col-4">
+      <p>aca va el chat????</p>
+    </div>
+  </div>
+</div>
 
 
 
