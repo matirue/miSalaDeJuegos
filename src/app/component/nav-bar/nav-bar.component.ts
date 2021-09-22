@@ -49,7 +49,7 @@ export class NavBarComponent implements OnInit {
     try{
       await this.authFire.signOut();
 
-      this.router.navigateByUrl('home');
+      this.router.navigateByUrl('/');
 
       
     }catch(error){ console.log(error); }

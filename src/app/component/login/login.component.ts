@@ -16,6 +16,9 @@ export class LoginComponent implements OnInit {
   public userAdmin: User;
   public load: boolean = false;
 
+  mensajeAlert: string = '';
+  mostrarError: boolean = false;
+
   public mensajeValidacion = {
     'email': [
       {tipo: 'required', mesnaje: 'El email es requerido'},
@@ -88,11 +91,18 @@ export class LoginComponent implements OnInit {
       const usuario = await this.authService.login(email, password);
 
       if(usuario){
+        this.mostrarError = false;
+
+
         this.IrHome();
         
+      }else{
+        this.mensajeAlert = ' El usuario o contraseña ingresados son inexistente';
+        this.mostrarError = true;
       }
     }catch(error){
       console.log(error);
+      
     }
   }
 

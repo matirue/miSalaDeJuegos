@@ -1,75 +1,117 @@
 <body class="text-center">
 
-  
-  
-  <form class="form-signin" [formGroup]="loginForm" (ngSubmit)="Ingresar()">
-    <img class="mb-4" src="./../../../assets/consola-de-juego.png" alt="" width="72" height="72">
-
-    <h1 class="title">Iniciar sesión</h1>
-
-    <div class="field">
-      <div class="control has-icons-left has-icons-right">
-        <input class="input" placeholder="Email" 
-        [class.is-danger]="eamil_campoInvalido"
-        [class.is-success]="eamil_campoValido" 
-        type="email" formControlName="email" [(ngModel)]="userAdmin.email">
-        <span class="icon is-small is-left">
-          <i class="fas fa-at"></i>
-        </span>
-        <span class="icon is-small is-right" *ngIf="eamil_campoInvalido; else noInvalido"> <!--Cruz-->
-          <i class="fas fa-times"></i>
-        </span>
-        <ng-template #noInvalido>
-          <span class="icon is-small is-right"> <!--Tilde-->
-            <i class="fas fa-check"></i>
-          </span>
-        </ng-template>        
-      </div>
-      <div *ngIf="eamil_campoInvalido">        
-        <p class="help is-danger" *ngIf="email_campo?.hasError('required')">Campo vacio</p>
-        <p class="help is-danger" *ngIf="email_campo?.hasError('email')">Formato email no respetado</p>
-      </div>      
-    </div>
-
-    <div class="field">
-      <div class="control has-icons-left">
-        <input class="input" 
-        [class.is-danger]="password_campoInvalido"
-        [class.is-success]="password_campoValido"
-        type="password" formControlName="password" placeholder="Contraseña" [(ngModel)]="userAdmin.password">
-        <span class="icon is-small is-left">
-          <i class="fas fa-lock"></i>
-        </span>      
-      </div>
-      <div *ngIf="password_campoInvalido">        
-        <p class="help is-danger" *ngIf="password_campo?.hasError('required')">Campo vacio</p>
-        <p class="help is-danger" *ngIf="password_campo?.hasError('minLength')">Minimo 6 caracteres</p>
-      </div> 
+  <div class="container">
+    <div class="row">    
       
-    </div>
+     
+        <div class="col-sm-7">
 
-
-    <br><br>
+          <h1 class="titulo" > BIENVENIDO A MI SALA DE JUEGOS</h1>
   
-    
-    <button class="btn btn-lg btn-primary btn-block" type="button"  [disabled]="!loginForm.valid" (click)="Ingresar()"> Iniciar sesión</button>
-    <button class="btn btn-lg btn-primary btn-block" type="button" (click)="InicioRapido()">Inicio rápido</button>
-    
-    <hr>
-    
-    <button class="btn btn-lg btn-primary btn-block" type="button" (click)="Registrar()">Registrarme</button>
-    
+          <br>  <br>  
+  
+        </div>
+      
 
-    <br>
+      <div class="col-sm-5">
 
+        <form class="form-signin" [formGroup]="loginForm" (ngSubmit)="Ingresar()">
+          <img class="mb-4" src="./../../../assets/consola-de-juego.png" alt="" width="72" height="72">
+      
+          <h1 class="title" style="text-shadow: -16px 9px 8px rgba(146,34,34,0.6);" >Iniciar sesión</h1>
+      
+          <div class="field">
+            <div class="control has-icons-left has-icons-right">
+              <input class="input" placeholder="Email" 
+              [class.is-danger]="eamil_campoInvalido"
+              [class.is-success]="eamil_campoValido" 
+              type="email" formControlName="email" [(ngModel)]="userAdmin.email">
+              <span class="icon is-small is-left">
+                <i class="fas fa-at"></i>
+              </span>
+              <span class="icon is-small is-right" *ngIf="eamil_campoInvalido; else noInvalido"> <!--Cruz-->
+                <i class="fas fa-times"></i>
+              </span>
+              <ng-template #noInvalido>
+                <span class="icon is-small is-right"> <!--Tilde-->
+                  <i class="fas fa-check"></i>
+                </span>
+              </ng-template>        
+            </div>
+            <div *ngIf="eamil_campoInvalido">        
+              <p class="help is-danger" *ngIf="email_campo?.hasError('required')">Campo vacio</p>
+              <p class="help is-danger" *ngIf="email_campo?.hasError('email')">Formato email no respetado</p>
+            </div>      
+          </div>
+      
+          <div class="field">
+            <div class="control has-icons-left">
+              <input class="input" 
+              [class.is-danger]="password_campoInvalido"
+              [class.is-success]="password_campoValido"
+              type="password" formControlName="password" placeholder="Contraseña" [(ngModel)]="userAdmin.password">
+              <span class="icon is-small is-left">
+                <i class="fas fa-lock"></i>
+              </span>      
+            </div>
+            <div *ngIf="password_campoInvalido">        
+              <p class="help is-danger" *ngIf="password_campo?.hasError('required')">Campo vacio</p>
+              <p class="help is-danger" *ngIf="password_campo?.hasError('minLength')">Minimo 6 caracteres</p>
+            </div> 
+      
+            
+            
+          </div>
+      
+          <br>
+      
+          <div class="container">
+            <div *ngIf="load">
+              <div class="spinner col-md-2 loader5 bg-green-grd">
+                <img src="../../../assets/gif/pato.gif" >
+              </div>  
+            </div>
+          </div>
+
+          <div *ngIf="mostrarError">
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+              <strong> ERROR! </strong> {{mensajeAlert}}
+            </div>
+          </div>
+          
+         
+      
+      
+          <br><br>
+          
+          
+        
+          
+          <button class="btn btn-lg btn-primary btn-block" type="button"  [disabled]="!loginForm.valid" (click)="Ingresar()"> Iniciar sesión</button>
+          
+          <button class="btn btn-lg btn-primary btn-block" type="button" (click)="InicioRapido()">Inicio rápido</button>
+          
+          <hr>
+          
+          <button class="btn btn-lg btn-primary btn-block" type="button" (click)="Registrar()">Registrarme</button>
+          
+      
+          <br>
+      
+          
+        </form>
+
+      </div>
+
+      
+      
+
+    </div>
     <p class="mt-5 mb-3 text-muted">&copy; Rueda - 2021</p>
-  </form>
-
-  <div *ngIf="load">
-    <div class="spinner">
-      <img src="../../../assets/gif/pato.gif" >
-    </div>  
   </div>
+  
+  
+
 
 
 </body>

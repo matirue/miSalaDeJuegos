@@ -3,7 +3,7 @@
     <form class="form-signin" [formGroup] = "registroForm" (ngSubmit)="Registar()">
       <img class="mb-4" src="./../../../assets/consola-de-juego.png" alt="" width="72" height="72">
   
-      <h1 class="title">Registrar</h1>
+      <h1 class="title" style="text-shadow: -16px 9px 8px rgba(146,34,34,0.6);">Registrar</h1>
 
       <br>
 
@@ -48,9 +48,19 @@
         
       </div>
 
-
-
       <br>
+
+      <div class="container">
+        <div *ngIf="load">
+          <div class="spinner col-md-2 loader5 bg-green-grd">
+            <img src="../../../assets/gif/pato.gif" >
+          </div>  
+        </div>
+      </div>
+
+
+
+      <br><br>
   
       <button class="btn btn-lg btn-primary btn-block" type="submit" [disabled]="!registroForm.valid">Registrarme</button>
       <hr>
@@ -59,11 +69,6 @@
       <p class="mt-5 mb-3 text-muted">&copy; Rueda - 2021</p>
     </form>
 
-    <div *ngIf="load">
-      <div class="spinner">
-        <img src="../../../assets/gif/pato.gif" >
-      </div>  
-    </div>  
-  
+    
   
   </body>

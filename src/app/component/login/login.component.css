@@ -68,3 +68,21 @@ button:disabled {
   left: 50%;
   transform: translate(-50%, -50%);  
 }
+
+div .imgGif{
+  width: "72px"; 
+  height: "72px";
+}
+
+
+h1 .title{
+  text-shadow: -14px 9px 8px;
+  color: rgba(146,34,34,0.6);
+}
+
+.titulo{
+  text-shadow: -16px 9px 8px;
+  color: rgba(146,34,34,0.6);
+  font-size: 40px;
+  padding: 25%;
+}

@@ -14,7 +14,7 @@
                     <a class="nav-link active" type="button" (click)="quienSoy()">Quien Soy<span class="sr-only"></span></a>
                 </li> 
                 <li class="nav-item">
-                    <a class="nav-link active" type="button" (click)="home()">Inicio<span class="sr-only"></span></a>
+                    <a class="nav-link active" type="button" (click)="home()"  *ngIf="ocultarLogout">Inicio<span class="sr-only"></span></a>
                 </li>
                                
             </ul>    
@@ -22,7 +22,7 @@
             <div class="text-end">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item"><a class="nav-link" *ngIf="ocultarLogout">Hola! {{ userLogged }}</a></li>
-                    <li><a class="nav-link active" type="button" *ngIf="ocultarLogin" (click)="login()">Iiniar sesión</a></li>
+                    <!-- <li><a class="nav-link active" type="button" *ngIf="ocultarLogin" (click)="login()">Iiniar sesión</a></li> -->
 
                     <li><a class="nav-link active" type="button" *ngIf="ocultarLogout" (click)="logOut()">Cerrar sesión</a></li>
                 </ul>

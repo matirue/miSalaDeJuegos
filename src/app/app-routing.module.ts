@@ -9,21 +9,23 @@ import { AhorcadoComponent } from './juegos/ahorcado/ahorcado.component';
 import { AdivinarColorComponent } from './juegos/adivinar-color/adivinar-color.component';
 import { MayorMenorComponent } from './juegos/mayor-menor/mayor-menor.component';
 import { PreguntadosComponent } from './juegos/preguntados/preguntados.component';
+import { AuthGuardsService } from './guards/auth-guards.service';
 
 
 const routes: Routes = [
   { 
     path:'',
-    redirectTo: 'home',
+    redirectTo: 'login',
     pathMatch: 'full'
   },
   { 
     path:'home', 
-    component: HomeComponent 
+    component: HomeComponent,
+    canActivate: [AuthGuardsService]
   },
   { 
     path:'login', 
-    component: LoginComponent 
+    component: LoginComponent,
   },
   { 
     path:'quienSoy', 
@@ -35,19 +37,23 @@ const routes: Routes = [
   },
   { 
     path:'ahorcado', 
-    component: AhorcadoComponent 
+    component: AhorcadoComponent,
+    canActivate: [AuthGuardsService] 
   },
   { 
     path:'adivinarColor', 
-    component: AdivinarColorComponent 
+    component: AdivinarColorComponent,
+    canActivate: [AuthGuardsService] 
   },
   { 
     path:'mayorMenor', 
-    component: MayorMenorComponent 
+    component: MayorMenorComponent,
+    canActivate: [AuthGuardsService] 
   },
   { 
     path:'preguntados', 
-    component: PreguntadosComponent 
+    component: PreguntadosComponent,
+    canActivate: [AuthGuardsService] 
   },
   {
     path:'**', 
