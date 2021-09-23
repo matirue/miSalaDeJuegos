@@ -19,6 +19,8 @@ import { PreguntadosComponent } from './juegos/preguntados/preguntados.component
 import { AdivinarColorComponent } from './juegos/adivinar-color/adivinar-color.component';
 import { MayorMenorComponent } from './juegos/mayor-menor/mayor-menor.component';
 import { ChatModule } from './component/chat/chat.module';
+import { ColoresComponent } from './juegos/colores/colores.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -32,7 +34,8 @@ import { ChatModule } from './component/chat/chat.module';
     AhorcadoComponent,
     PreguntadosComponent,
     AdivinarColorComponent,
-    MayorMenorComponent
+    MayorMenorComponent,
+    ColoresComponent
   ],
   imports: [
     BrowserModule,
@@ -41,7 +44,8 @@ import { ChatModule } from './component/chat/chat.module';
     AngularFireModule.initializeApp(environment.firebaseConfig), //conec. firebase
     AngularFireAuthModule,
     ChatModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -22,19 +22,19 @@ export class HomeComponent implements OnInit {
 
 
   goAhorcado(){
-    this.router.navigate(["/ahorcado"]);
+    this.router.navigate(["juegos/ahorcado"]);
   }
 
   goMayorMenor(){
-    this.router.navigate(["/mayorMenor"]);
+    this.router.navigate(["juegos/mayorMenor"]);
   }
 
   goPreguntados(){
-    this.router.navigate(["/preguntados"]);
+    this.router.navigate(["juegos/preguntados"]);
   }
   
   goAdivinarColor(){
-    this.router.navigate(["/adivinarColor"]);
+    this.router.navigate(["juegos/adivinarColor"]);
   }
 
 }

@@ -115,3 +115,10 @@ footer{
     float: left;
     
 }
+
+button img{
+    border-radius: 10px;
+    width: 30%;
+    align-items: auto;   
+
+}

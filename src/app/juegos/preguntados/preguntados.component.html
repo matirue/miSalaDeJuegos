@@ -2,11 +2,32 @@
   <div class="row">
 
     <div class="col-sm-3">
-      <h1>grid para el preguntas</h1>    
+      
+      <h1>Pregunta:</h1>
+
+      <div *ngIf="iniciar">
+
+        <img src="{{imgDigimon}}" >
+
+        <h2>¿Cómo se llaman los Digimon?</h2>
+      </div>
+    
     </div>
 
     <div class="col-sm-5">
-      <h1>grid para botones</h1>        
+      
+      <div *ngIf="!respuestaCorrecta">
+        <button *ngFor = "let dig of arrayDigimon" (click) = "RespuestaCorrecta(dig.name)"> {{dig.name}} </button>
+      </div>
+
+      <br>
+
+      <h3>{{mensajeCorrecto}}</h3>
+
+
+      <button type="submit" class="col btn" *ngIf="respuestaCorrecta" (click)="Repetir()"><i class="fas fa-undo"></i></button>
+      <button type="submit" class="col btn" *ngIf="respuestaCorrecta" [routerLink]="['/home']" routerLinkActive="router-link-active" >Salir</button>
+    
     </div>
 
     <div class="col-sm-4">

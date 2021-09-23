@@ -1,12 +1,53 @@
 <div class="container">
   <div class="row">
 
-    <div class="col-sm-3">
-      <h1>grid para el color</h1>    
+    <div class="col-sm-4">
+      <br>
+
+      <div class="container">
+        <h4>Intentos: {{ intentos }}/{{ oportunidades }}</h4>
+      </div>
+
+      <br><br><br>
+      
+      <!-- <h2>
+        ¿A que color representa el siguiente código:  <strong> <b>{{ ganador }}</b> </strong> ?
+      </h2>    -->
+      <h2>
+        El color del siguiente código:  <strong> <b>{{ ganador }}</b> </strong> es ...
+      </h2> 
+      
+      <br><br>
+
+     
     </div>
 
-    <div class="col-sm-5">
-      <h1>grid para botones</h1>        
+    <div class="col-sm-4">
+
+      <div *ngIf="!smsFinal">
+        <h2>Opciones:</h2>
+      
+        <app-colores *ngFor="let color of colores"
+              [colorHexa]="color"
+              [habilitado]="isJugando"
+              (onColorClick)="colorClick($event)"
+        ></app-colores>    
+
+      </div>
+
+      <br><br>
+      
+      <div class="mensaje lose" *ngIf="smsFinal">
+        
+        <span>{{mensajeFinal}}</span>
+      </div>
+
+      <br>
+      
+      <button type="submit" class="col btn" *ngIf="smsFinal" (click)="empezarJuego()"><i class="fas fa-undo"></i></button>
+      <button type="submit" class="col btn" *ngIf="smsFinal" [routerLink]="['/home']" routerLinkActive="router-link-active" >Salir</button>
+
+      <br><br>
     </div>
 
     <div class="col-sm-4">

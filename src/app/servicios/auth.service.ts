@@ -14,6 +14,8 @@ export class AuthService {
     afAuth.authState.subscribe(user=>(this.isLogged = user));
   }
 
+  
+
   /**
    * Funcion para iniciar sesion
    */
