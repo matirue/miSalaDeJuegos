@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { GameScoresService } from 'src/app/servicios/game-scores.service';
 
 @Component({
   selector: 'app-adivinar-color',
@@ -19,8 +20,10 @@ export class AdivinarColorComponent implements OnInit {
   mensajeFinal:string = "";
   smsFinal: boolean = false;
 
+  puntos: number = 0;
 
-  constructor() { }
+
+  constructor(public res: GameScoresService) { }
 
   ngOnInit(): void {
     this.empezarJuego();
@@ -69,11 +72,17 @@ export class AdivinarColorComponent implements OnInit {
   ganaste(){
     this.smsFinal = true;
     this.mensajeFinal="BIEN!! HAZ GANADO!!!";
+    this.puntos++;
+
+    this.res.agregarResultado('Win', 'Colores');
+
   }
 
   perdiste(){
     this.smsFinal = true;
     this.mensajeFinal="SE TE ACABARON LOS INTENTOS!!! ";
+
+    this.res.agregarResultado('Lose', 'Colores');
   }
 
 

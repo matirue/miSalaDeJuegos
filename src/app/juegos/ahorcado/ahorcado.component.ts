@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { GameScoresService } from 'src/app/servicios/game-scores.service';
 
 @Component({
   selector: 'app-ahorcado',
@@ -28,7 +29,7 @@ export class AhorcadoComponent implements OnInit {
             'K','L','M','N','Ñ','O','P','Q','R','S',
             'T','U','V','W','X','Y','Z'];
   
-  constructor(){
+  constructor(public res: GameScoresService){
     this.selectWord();
   }
 
@@ -61,6 +62,9 @@ export class AhorcadoComponent implements OnInit {
     const WordArray = this.palabraOculta.split(' ');
     const WordString = WordArray.join('');
     if(WordString == this.palabra){
+
+      this.res.agregarResultado('Win', 'Ahorcado');
+
       this.message = 'Ganaste';
       this.puntos =+ 1;
       this.win = true;
@@ -68,6 +72,9 @@ export class AhorcadoComponent implements OnInit {
     }
 
     if(this.intntoes_usuarios >= this.intentos){
+
+      this.res.agregarResultado('Lose', 'Ahorcado');
+
       this.intntoes_usuarios = 8;
       this.message = 'Perdiste';
       this.lose = true;

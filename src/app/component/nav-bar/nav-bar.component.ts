@@ -66,5 +66,7 @@ export class NavBarComponent implements OnInit {
 
   home(){ this.router.navigateByUrl('home'); }
   quienSoy(){ this.router.navigateByUrl('quienSoy'); }
+  historial(){ this.router.navigateByUrl('juegos/resultados'); }
+  encuesta(){ this.router.navigateByUrl('juegos/encuesta'); }
 
 }

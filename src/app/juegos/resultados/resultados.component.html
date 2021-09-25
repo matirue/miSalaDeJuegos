@@ -1,0 +1,31 @@
+<div class="container main-container mt-3">
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th scope="col">Jugador</th>
+                <th scope="col">Juego</th>
+                <th scope="col">Fecha</th>                
+                <th scope="col">Resultado</th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let resultado of score.resultados">
+                <td>{{resultado.uemail}}</td>
+                <td>{{resultado.juego}}</td>
+                <td>{{resultado.fecha | date: 'short'}}</td>                
+                <td>{{resultado.estado}} &nbsp;&nbsp;&nbsp;
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<footer class="my-5 pt-5 text-muted text-center text-small">
+    <p class="mb-1">&copy; Rueda - 2021</p>
+    <ul class="list-inline">
+      <li class="list-inline-item"><a href="https://github.com/matirue/miSalaDeJuegos">GitHub</a></li>-
+      
+      <li class="list-inline-item"><a href="https://www.linkedin.com/in/matias-mauro-rueda-b85253180/">LinkedIn</a></li>
+      </ul>
+  </footer>

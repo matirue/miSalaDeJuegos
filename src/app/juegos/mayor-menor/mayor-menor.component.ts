@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { GameScoresService } from 'src/app/servicios/game-scores.service';
 
 @Component({
   selector: 'app-mayor-menor',
@@ -24,7 +25,7 @@ export class MayorMenorComponent implements OnInit {
   mensajeFinal: string = '';
   smsFinal: boolean = false;
 
-  constructor() { 
+  constructor(public res: GameScoresService) { 
     this.numero = this.arrayNumeros[Math.floor(Math.random() * this.arrayNumeros.length)];
   }
 
@@ -70,8 +71,22 @@ export class MayorMenorComponent implements OnInit {
     }
     this.numero = this.siguienteNumero;
 
+    if(this.puntos === 5){
+      
+      this.res.agregarResultado('Win', 'Mayor o Menor');
+
+      this.mensajeFinal = 'GANASTE!!!';
+      this.smsFinal = true;
+      this.win = false;
+      this.lose = false;
+
+    }
+
 
     if(this.vidas === 0){
+
+      this.res.agregarResultado('Lose', 'Mayor o Menor');
+
       this.mensajeFinal = 'Fin del juego!!!';
       this.smsFinal = true;
       this.win = false;

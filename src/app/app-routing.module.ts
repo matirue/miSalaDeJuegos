@@ -35,29 +35,10 @@ const routes: Routes = [
     path:'registro', 
     component: RegistroComponent 
   },
-  { 
-    path:'juegos/ahorcado', 
-    component: AhorcadoComponent,
-    canActivate: [AuthGuardsService],
-    children: [] 
-  },
-  { 
-    path:'juegos/adivinarColor', 
-    component: AdivinarColorComponent,
-    canActivate: [AuthGuardsService],
-    children: [] 
-  },
-  { 
-    path:'juegos/mayorMenor', 
-    component: MayorMenorComponent,
-    canActivate: [AuthGuardsService],
-    children: [] 
-  },
-  { 
-    path:'juegos/preguntados', 
-    component: PreguntadosComponent,
-    canActivate: [AuthGuardsService],
-    children: [] 
+  {
+    path: 'juegos', 
+    loadChildren: () => import('./juegos/juegos.module').then(m => m.JuegosModule),
+    canActivate: [AuthGuardsService]
   },
   {
     path:'**', 

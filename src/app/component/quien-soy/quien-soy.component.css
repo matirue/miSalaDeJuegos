@@ -21,6 +21,13 @@ body{
     
 }
 
+.contenedorB{
+    width: 150px;
+    margin: 0 auto;
+    align-items: center;
+    
+}
+
 header{
     background-color: rgb(111, 103, 101);
     margin: 30px 0;

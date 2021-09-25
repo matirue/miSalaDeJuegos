@@ -21,6 +21,7 @@ import { MayorMenorComponent } from './juegos/mayor-menor/mayor-menor.component'
 import { ChatModule } from './component/chat/chat.module';
 import { ColoresComponent } from './juegos/colores/colores.component';
 import { HttpClientModule } from '@angular/common/http';
+import { FooterComponent } from './component/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -31,11 +32,7 @@ import { HttpClientModule } from '@angular/common/http';
     NavBarComponent,
     ErrorComponent,
     RegistroComponent,
-    AhorcadoComponent,
-    PreguntadosComponent,
-    AdivinarColorComponent,
-    MayorMenorComponent,
-    ColoresComponent
+    FooterComponent,
   ],
   imports: [
     BrowserModule,

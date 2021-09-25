@@ -1,0 +1,146 @@
+
+<br>
+<div class="container">
+    <form [formGroup]="formulario" (ngSubmit)="aceptar()">
+        <div class="row">
+            <div class="col-md-12 mb-5">
+                <h2><b>Encuesta</b></h2>
+            </div>
+        </div>
+        <div class="row formulario">
+
+            <div class="col-md-6 mb-3">
+
+                <label for="nombre" class="form-label">Nombre</label>
+                <input type="text" class="form-control" id="nombre" placeholder="Ingrese nombre" formControlName="nombre">
+                <small class="invalid" *ngIf="formulario.get('nombre')?.errors?.required && formulario.get('nombre')?.touched">
+                    El nombre es requerido
+                </small>
+
+            </div>
+
+            <div class="col-md-6 mb-3">
+
+                <label for="apellido" class="form-label">Apellido</label>
+                <input type="text" class="form-control" id="apellido" placeholder="Ingrese apellido" formControlName="apellido">
+                <small class="invalid" *ngIf="formulario.get('apellido')?.errors?.required && formulario.get('apellido')?.touched ">
+                    El apellido es requerido
+                </small>
+
+            </div>
+
+            <div class="col-md-6 mb-3">
+
+                <label for="edad" class="form-label">Edad</label>
+                <input type="number" class="form-control" id="edad" placeholder="Ingrese edad" formControlName="edad">
+                <small class="invalid" *ngIf="formulario.get('edad')?.errors?.required && formulario.get('edad')?.touched ">
+                    La edad es requerida
+                </small>
+                <small class="invalid" *ngIf="formulario.get('edad')?.errors?.min || formulario.get('edad')?.errors?.max && formulario.get('edad')?.touched ">
+                    La edad debe ser entre 18 a 110 años
+                </small>
+
+            </div>
+
+            <div class="col-md-6 mb-3">
+
+                <label for="telefono" class="form-label">Telefono</label>
+                <input type="text" class="form-control" id="telefono" placeholder="Ingrese telefono" formControlName="telefono" maxlength="10">
+                <small class="invalid" *ngIf="formulario.get('telefono')?.errors?.required && formulario.get('telefono')?.touched ">
+                    El numero de telefono es requerido
+                </small>
+                <small class="invalid" *ngIf="formulario.get('telefono')?.errors?.pattern  && formulario.get('telefono')?.touched ">
+                    El numero de telefono solo debe contener numeros
+                </small>
+
+
+            </div>
+
+            <div class="col-md-6 mb-5">
+
+                <label for="juego" class="form-label">Seleccione el juego &nbsp;&nbsp;</label>
+                <select class="form-select" id="juego" formControlName="juego">
+                    <option value="" selected="true">Seleccione uno</option>
+                    <option value="A">Ahorcado</option>
+                    <option value="M">Mayor o Menor</option>                    
+                    <option value="C">Colores</option>
+                    <option value="P">Preguntados</option>
+                </select>
+                <small class="invalid" *ngIf="formulario.get('juego')?.errors?.required && formulario.get('juego')?.touched">
+                    El juego es requerido
+                </small>
+
+            </div>
+
+            <div class="col-md-6 mb-5">
+
+                <label for="clasificacion" class="form-label">Puntuación del juego&nbsp;&nbsp;</label>
+
+                <p class="clasificacion">
+                    <input id="radio1" type="radio" name="puntuacion" value="5" formControlName="puntuacion">
+                    <label for="radio1" id="star" title="Hello This Will Have Some Value">★</label>
+                    <input id="radio2" type="radio" name="puntuacion" value="4" formControlName="puntuacion">
+                    <label for="radio2" id="star">★</label>
+                    <input id="radio3" type="radio" name="puntuacion" value="3" formControlName="puntuacion">
+                    <label for="radio3" id="star">★</label>
+                    <input id="radio4" type="radio" name="puntuacion" value="2" formControlName="puntuacion">
+                    <label for="radio4" id="star">★</label>
+                    <input id="radio5" type="radio" name="puntuacion" value="1"checked formControlName="puntuacion">
+                    <label for="radio5" id="star">★</label>
+                </p>
+                <small class="invalid" *ngIf="formulario.get('puntuacion')?.errors?.required && formulario.get('puntuacion')?.touched">
+                    La puntuación del juego es requerido
+                </small>
+
+            </div>
+
+            <div class="col-md-12 mb-5">
+
+                <div class="form-floating">
+                    <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" formControlName="opinion" 
+                    style="height: 120px" maxlength="140"></textarea>
+                    <label for="floatingTextarea2">Ingrese su opinión o mejoras&nbsp;&nbsp;</label>
+                </div>
+                <small class="invalid" *ngIf="formulario.get('opinion')?.errors?.required && formulario.get('opinion')?.touched">
+                    Su opinión es requerida
+                </small>
+
+            </div>
+
+        </div>
+
+        <div class="row mt-4">
+
+            <div class="col-md-12 mb-5">
+
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="terminos" formControlName="terminos">
+                    <label for="recordar" class="form-check-label" for="terminos">
+                        Aceptar términos y condiciones
+                    </label>
+                    <small class="invalid" *ngIf="formulario.get('terminos')?.errors?.required && formulario.get('terminos')?.touched">
+                        Le falto aceptar los términos y condiciones
+                    </small>
+                </div>
+
+            </div>
+
+            <div class="col-md-12 d-grid gap-2">
+
+                <button type="submit" class="btn btn-primary btn-block" [disabled]="formulario.invalid" >
+                    Aceptar
+                </button>
+            </div>
+
+        </div>
+    </form>
+</div>
+
+<footer class="my-5 pt-5 text-muted text-center text-small">
+    <p class="mb-1">&copy; Rueda - 2021</p>
+    <ul class="list-inline">
+      <li class="list-inline-item"><a href="https://github.com/matirue/miSalaDeJuegos">GitHub</a></li>-
+      
+      <li class="list-inline-item"><a href="https://www.linkedin.com/in/matias-mauro-rueda-b85253180/">LinkedIn</a></li>
+      </ul>
+  </footer>

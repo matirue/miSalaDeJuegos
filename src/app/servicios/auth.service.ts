@@ -7,11 +7,16 @@ import { AngularFireAuth } from '@angular/fire/compat/auth';
 export class AuthService {
 
   public isLogged: any = false;
+  public usuario: any = {};
 
   constructor(
     public afAuth: AngularFireAuth
   ) { 
-    afAuth.authState.subscribe(user=>(this.isLogged = user));
+    afAuth.authState.subscribe(user=>{
+        this.isLogged = user;
+        this.usuario.email = user?.email;
+        this.usuario.uid = user?.uid;
+    });
   }
 
   

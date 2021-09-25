@@ -1,0 +1,72 @@
+.container {
+    max-width: 900px;
+    padding: 50px;
+
+    /* SHADOW */
+    -webkit-box-shadow: 2px 2px 32px -6px rgba(146,34,34,0.6);
+    -moz-box-shadow: 2px 2px 32px -6px rgba(146,34,34,0.6);
+    box-shadow: 2px 2px 32px -6px rgba(146,34,34,0.6);
+}
+
+h2{
+    color: rgba(146,34,34,0.6);
+}
+
+.invalid {
+    color: red;
+}
+
+/* ESTRELLAS */
+#star{
+    font-size: 300% !important;
+    
+}
+p.clasificacion {
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+  }
+  
+  p.clasificacion input {
+    position: absolute;
+    top: -100px;
+  }
+  
+  p.clasificacion label {
+    float: right;
+    color: rgb(97, 96, 96);
+  }
+  
+  p.clasificacion label:hover,
+  p.clasificacion label:hover ~ label,
+  p.clasificacion input:checked ~ label {
+    color: rgb(133, 40, 40);
+  }
+
+  div button{
+    font-size: 1rem;
+    padding: .6rem 1.2rem;
+    background-color: rgb(123, 29, 29);
+    margin: .3rem .6rem;
+    border-radius: .5rem;
+    border: 1px solid #666;
+    color: #fff;
+    filter: drop-shadow(0px 0px 2px#666);
+    font-weight: 400;
+}
+
+div .botones_resultados{
+    align-items: center;
+    margin-top: 1.5rem;
+    display: flex;
+    padding: 1rem 2rem;
+    text-align: center;
+    border-radius: .5rem;
+    border: 1px solid #666;
+    filter: drop-shadow(0px 1px 2px #666);
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: .5px;
+    color: #fff;
+    background-color:rgb(123, 29, 29);
+}

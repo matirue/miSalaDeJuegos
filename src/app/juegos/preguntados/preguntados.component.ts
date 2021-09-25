@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ApiDigimonService } from 'src/app/servicios/api-digimon.service';
 import { AuthService } from 'src/app/servicios/auth.service';
+import { GameScoresService } from 'src/app/servicios/game-scores.service';
 
 @Component({
   selector: 'app-preguntados',
@@ -25,7 +26,8 @@ export class PreguntadosComponent implements OnInit {
   constructor(
     private router: Router,
     public authSrv: AuthService,
-    private apiSrv: ApiDigimonService
+    private apiSrv: ApiDigimonService,
+    public res: GameScoresService
   ) {
     /**
      * this.apiSrv.ObtenerDigimon().subscribe( 
@@ -77,10 +79,15 @@ export class PreguntadosComponent implements OnInit {
 
     if(dig == this.digimon.name)
     {
+      this.res.agregarResultado('Win', 'Preguntados');
+
       this.respuestaCorrecta = true;
       this.mensajeCorrecto = "BIEN, Respuesta Correcta!";
     }
     else{
+
+      this.res.agregarResultado('Lose', 'Preguntados');
+
       this.mensajeCorrecto = "Incorrecto!";
       this.respuestaCorrecta = true;
 
