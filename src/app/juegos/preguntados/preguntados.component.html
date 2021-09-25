@@ -5,29 +5,42 @@
       
       <h1>Pregunta:</h1>
 
-      <div *ngIf="iniciar">
+      <button type="button" class="col btn" *ngIf="!vamos" (click)="Iniciar()">Iniciar Juego</button>
 
-        <img src="{{imgDigimon}}" >
 
-        <h2>¿Cómo se llaman los Digimon?</h2>
+      <img *ngIf="!smsFinal &&vamos " [src]="imgDigimon.img">
+
+      <h3 *ngIf="!smsFinal &&vamos" >{{hacerPregunta}}</h3>
+
+
+      <div class="mensaje win" *ngIf="win">
+        <span>{{mensajeWin}}</span>
+      </div>
+    
+      <div class="mensaje lose" *ngIf="lose">
+        <span>{{mensajeLose}}</span>
+      </div>
+
+      <div class="mensaje lose" *ngIf="smsFinal">
+        <span>{{mensajeFinal}}</span>
       </div>
     
     </div>
 
     <div class="col-sm-5">
+      <span class="counter"> Puntos: {{puntos}}/3  - </span>
+      <span class="counter"> Vidas: {{vidas}}/{{vidasTotal}}</span>
+
+      <br><br>
+
+      <button type="button" class="col btn" *ngIf="!smsFinal && vamos" (click)="Control(2)">2 {{boton_1}}</button>
+      <button type="button" class="col btn" *ngIf="!smsFinal && vamos" (click)="Control(3)">3 {{boton_2}}</button>
+      <button type="button" class="col btn" *ngIf="!smsFinal && vamos" (click)="Control(4)">4 {{boton_3}}</button>
+      <button type="button" class="col btn" *ngIf="!smsFinal && vamos" (click)="Control(5)">5 {{boton_4}}</button>
+
+      <button type="submit" class="col btn" *ngIf="smsFinal" (click)="Repetir()"><i class="fas fa-undo"></i></button>
+      <button type="submit" class="col btn" *ngIf="smsFinal" [routerLink]="['/home']" routerLinkActive="router-link-active" >Salir</button>
       
-      <div *ngIf="!respuestaCorrecta">
-        <button *ngFor = "let dig of arrayDigimon" (click) = "RespuestaCorrecta(dig.name)"> {{dig.name}} </button>
-      </div>
-
-      <br>
-
-      <h3>{{mensajeCorrecto}}</h3>
-
-
-      <button type="submit" class="col btn" *ngIf="respuestaCorrecta" (click)="Repetir()"><i class="fas fa-undo"></i></button>
-      <button type="submit" class="col btn" *ngIf="respuestaCorrecta" [routerLink]="['/home']" routerLinkActive="router-link-active" >Salir</button>
-    
     </div>
 
     <div class="col-sm-4">

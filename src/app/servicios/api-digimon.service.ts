@@ -13,8 +13,5 @@ export class ApiDigimonService {
     return this.http.get("https://digimon-api.vercel.app/api/digimon");
   }
 
-  public ObtenerDigBotones(cantidad: string){
-  //public ObtenerDigBotones(cantidad: number){
-    return this.http.get('https://digimon-api.vercel.app/api/digimon?count=' + cantidad);
-  }
+  
 }
