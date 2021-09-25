@@ -162,7 +162,7 @@ export class PreguntadosComponent implements OnInit {
       this.boton_3 = this.pregunta_04[4];
       this.boton_4 = this.pregunta_04[5];
 
-      //this.rta = this.pregunta_04[6];
+      this.rta = this.pregunta_04[6];
       
       //this.numero++;    
     }
@@ -176,7 +176,7 @@ export class PreguntadosComponent implements OnInit {
       this.boton_3 = this.pregunta_05[4];
       this.boton_4 = this.pregunta_05[5];
 
-      //this.rta = this.pregunta_05[6];
+      this.rta = this.pregunta_05[6];
       
       //this.numero++;    
     }
