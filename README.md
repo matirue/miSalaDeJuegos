@@ -15,6 +15,11 @@ Este proyecto cuenta con un login y registro, una simulación de chat, una encue
 **Juego propio:** :rocket:
 * Colores
 
+## Developer server
+**Url Heroku**   https://misaladejuegos.herokuapp.com/ 
+
+**Url Firebase**   https://saladejuego-637cd.web.app/ 
+
 
 Este proyecto se generó con [Angular CLI] (https://github.com/angular/angular-cli) versión 12.2.3 y Bootstrap versión 5.1.1.
 
