@@ -16,7 +16,6 @@ Este proyecto cuenta con un login y registro, una simulación de chat, una encue
 * Colores
 
 ## Developer server
-**Url Heroku**   https://misaladejuegos.herokuapp.com/ 
 
 **Url Firebase**   https://saladejuego-637cd.web.app/ 
 
